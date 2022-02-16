@@ -136,7 +136,7 @@ let turnoff=0;
 //single curve Day 8
 
 function setup() {
-
+ randomSeed(int(fxrand()*100000000))
 
   let width =1200
   let height = 1600
@@ -189,15 +189,15 @@ function draw() {
   turn=random(-0,0)
   horizontal_shift=random(-20,20)
   vertical_shift=random(20,20)
-reflection=random(-18,18)
+
 blendMode(DIFFERENCE)
 
 
   angleMode(DEGREES)
   rectMode(CENTER)
     colorMode(RGB,255);
-let shadowstrength=random(100,200)
-
+let shadowstrength=random(60,110)
+reflection=random(-18,18)
 
     //right
       push()
@@ -252,28 +252,39 @@ backgroundlucent=255
       background(random(0,255),random(0,255),random(0,255),backgroundlucent)
 
 
-blendMode(SCREEN)
-blendMode(REPLACE)
-    fill(random(0,255),random(0,255),random(0,255))
-    rect(600,1200,1200,1000+random(200,400))
-    c=([random(0,255),random(0,255),random(0,255)]);
-      fill(c)
-drawstonesteps(c)
-console.log(c,c)
+//blendMode(REPLACE)
 
-      rect(1200,100,random(300,600),1000+random(-100,900))
+    fill(random(0,255),random(0,255),random(0,255))
+//ground
+    rect(600,1200,1200,1000+random(200,400))
+
+//blendMode(REPLACE)
+
+   blendMode(DIFFERENCE)
+
 
       fill(random(0,255),random(0,255),random(0,255))
     circle(random(300,1000),200-random(-150,150),random(50,150))
-blendMode(SCREEN)
-//blendMode(DIFFERENCE)
+
+    fill(random(0,255),random(0,255),random(0,255))
+//sky
+    rect(600,00,1200,1000+random(200,400))
+
+  blendMode(ADD)
+    c=([random(0,255),random(0,255),random(0,255),255]);
+      fill(c)
+      drawstonesteps(c)
+      rect(1200,300,random(300,600),1000+random(-100,600))
+
+
+blendMode(DIFFERENCE)
 
   let	x = 600+random(-200,200)
   let y = 600+random(-200,200)
 
 
-let uvfilter=random(100,200)
-
+let uvfilter=random(250,250)
+blendMode(DIFFERENCE)
 //right
   push()
   rotate(60+turn)
@@ -403,46 +414,46 @@ function carve3(uvfilter,vasewidth){
 
   for (k=0;k<20;k+=1){
     strokeWeight(0.5)
-    //c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-  //  c=(255,255,255)
-  //  c.setAlpha(random(0,0));
-    // fill(255,255,255,10)
-    // rect(450+cos(30)*k,430-sin(30)*k,50,50)
-    // rect(450+cos(30)*k,500-sin(30)*k,50,50)
-    // rect(450+cos(30)*k,570-sin(30)*k,50,50)
-    // 	rect(540+cos(30)*k,500-sin(30)*k,50,50)
-    //
-    // rect(570-cos(30)*k,500-sin(30)*k,vasewidth,vasewidth)
-    // rect(570-cos(30)*k,500+sin(30)*k,vasewidth,vasewidth)
-    // rect(486+cos(30)*k,430-sin(30)*k,vasewidth,vasewidth)
-    // rect(486+cos(30)*k,430+sin(30)*k,vasewidth,vasewidth)
-    //
-    // 		rect(540+cos(30)*k,550+sin(30)*k,50,50)
-    //
-    // 	rect(670+cos(30)*k,500+sin(30)*k,50,50)
-    //
-    // rect(600+cos(30)*150+cos(30)*k,600-sin(30)*150-sin(30)*k,vasewidth,vasewidth)
-    // rect(650+cos(30)*150+cos(30)*k,530-sin(30)*150+sin(30)*k,vasewidth,vasewidth)
-    // rect(650+cos(30)*150+cos(30)*k,530-sin(30)*150-sin(30)*k,vasewidth,vasewidth)
-    //
-    //
-    // 	rect(770+cos(30)*k,400+sin(30)*k,50,50)
-    // 	rect(680+cos(30)*150+cos(30)*k,600-sin(30)*150+sin(30)*k,50,50)
+    c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+   //c=(255,255,255)
+   c.setAlpha(random(0,0));
+    fill(255,255,255,10)
+    rect(450+cos(30)*k,430-sin(30)*k,50,50)
+    rect(450+cos(30)*k,500-sin(30)*k,50,50)
+    rect(450+cos(30)*k,570-sin(30)*k,50,50)
+    	rect(540+cos(30)*k,500-sin(30)*k,50,50)
+
+    rect(570-cos(30)*k,500-sin(30)*k,vasewidth,vasewidth)
+    rect(570-cos(30)*k,500+sin(30)*k,vasewidth,vasewidth)
+    rect(486+cos(30)*k,430-sin(30)*k,vasewidth,vasewidth)
+    rect(486+cos(30)*k,430+sin(30)*k,vasewidth,vasewidth)
+
+    		rect(540+cos(30)*k,550+sin(30)*k,50,50)
+
+    	rect(670+cos(30)*k,500+sin(30)*k,50,50)
+
+    rect(600+cos(30)*150+cos(30)*k,600-sin(30)*150-sin(30)*k,vasewidth,vasewidth)
+    rect(650+cos(30)*150+cos(30)*k,530-sin(30)*150+sin(30)*k,vasewidth,vasewidth)
+    rect(650+cos(30)*150+cos(30)*k,530-sin(30)*150-sin(30)*k,vasewidth,vasewidth)
+
+
+    	rect(770+cos(30)*k,400+sin(30)*k,50,50)
+    	rect(680+cos(30)*150+cos(30)*k,600-sin(30)*150+sin(30)*k,50,50)
 
   }
 
   //
 
-    //
-    // carve2(600+cos(30)*150,600-sin(30)*150,20,0)
-    //  carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,20,0)
-    //   carve2(486+cos(30)*20,430-sin(30)*20,20,0)
-    //  carve2(570-cos(30)*20,500+sin(30)*20,20,0)
-    //
-    //    carve2(600+cos(30)*150,600-sin(30)*150,20,0)
-    //     carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,20,0)
-    //      carve2(486+cos(30)*20,430-sin(30)*20,20,0)
-    //     carve2(570-cos(30)*20,500+sin(30)*20,20,0)
+
+    carve2(600+cos(30)*150,600-sin(30)*150,20,0)
+     carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,20,0)
+      carve2(486+cos(30)*20,430-sin(30)*20,20,0)
+     carve2(570-cos(30)*20,500+sin(30)*20,20,0)
+
+       carve2(600+cos(30)*150,600-sin(30)*150,20,0)
+        carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,20,0)
+         carve2(486+cos(30)*20,430-sin(30)*20,20,0)
+        carve2(570-cos(30)*20,500+sin(30)*20,20,0)
 
   angleMode(DEGREES)
   rectMode(CENTER)
