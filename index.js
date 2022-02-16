@@ -13,7 +13,7 @@ let topfaceangle= Xrandom(50,150);
 let leftceilingangle= Xrandom(50,150);
 let colorpicker= Xrandom(0,1);
 let rotateStyle=Xrandom(0,1);
-let leadCames=Xrandom(0.1,1.1);
+let leadCames=Xrandom(2.1,5.1);
 //
 // console.log(rotateStyle)
 // console.log(getColorStyle(colorpicker))
@@ -179,9 +179,9 @@ function draw() {
   let shapesize=random(110,600);
   let vasewidth=20
   turn=random(-0,0)
-  horizontal_shift=random(0,0)
-  vertical_shift=random(0,0)
-
+  hs=random(0,0)
+  vs=random(0,0)
+leadCames=random(0.1,5)
 blendMode(DIFFERENCE)
 
 
@@ -191,27 +191,32 @@ blendMode(DIFFERENCE)
 
     shadowstrength=random(60,110)
     reflection=random(-3.8,3.8)
-drawCube(shadowstrength,reflection,1,1)
+drawCube(shadowstrength,reflection,1,1,hs,vs,leadCames)
 
 shadowstrength=random(60,110)
 reflection=random(-3.8,3.8)
-drawCube(shadowstrength,reflection,1,1)
+drawCube(shadowstrength,reflection,1,1,hs,vs,leadCames)
 
 
 
 backgroundlucent=255
       background(random(0,255),random(0,255),random(0,255),backgroundlucent)
-  //blendMode(ADD)
-
-  blendMode(DARKEST )
+//  blendMode(ADD)//overexposed background
+//blendMode(DIFFERENCE) //complex background
+//blendMode(MULTIPLY) //too green
+//blendMode(SCREEN) //Lighter
+blendMode(OVERLAY) //ok maybe
+//blendMode(HARD_LIGHT )//ok maybe
+//blendMode(LIGHTEST) // no good details gone
+//do nothing stark contrast
+//blendMode(DODGE) //bright contrast exposed sometime details gone
+//blendMode(BURN)
+  //blendMode(DARKEST ) //no good??
 
     fill(random(0,255),random(0,255),random(0,255))
 //ground
     rect(600,1200,1200,1000+random(200,400))
-
-//blendMode(REPLACE)
-
-   blendMode(DARKEST)
+  // blendMode(DARKEST)
 
 //dot
       fill(random(0,255),random(0,255),random(0,255))
@@ -233,19 +238,22 @@ backgroundlucent=255
       rect(1200,300,random(300,600),1000+random(100,900))
 
 
-blendMode(LIGHTEST)
-//blendMode(DARKEST)
+
+
 
   // let	x = 600+random(-200,200)
   // let y = 600+random(-200,200)
   //
+//blendMode(LIGHTEST)
+//blendMode(DARKEST) //darker constrast
+blendMode(ADD)//jumps out negatie frame
+//blendMode(OVERLAY)//jumpsout dark frame
+uvfilter=random(250,250)
+reflection=random(-0.15,0.15)
+hs=random([-30, 0, 0,0,0, 30])
+vs=random([-30, 0,0,0,0, 30])
 
-
-blendMode(LIGHTEST)
-uvfilter=random(150,250)
-shadowstrength=random(60,110)
-reflection=random(-0.01,0.01)
-drawCube(uvfilter,reflection,0,0)
+drawCube(uvfilter,reflection,1,0,hs,vs,leadCames)
 
 
   noLoop()
@@ -279,8 +287,9 @@ rotate(-10)
   pop()
 }
 
-function drawCube(shadow,reflection,flower,stretch){
-
+function drawCube(shadow,reflection,flower,stretch,hs,vs,leadCames){
+horizontal_shift=hs;
+vertical_shift=vs;
   console.log(reflection)
 vasewidth=20
       //right
@@ -292,7 +301,7 @@ vasewidth=20
         }else{
 
         }
-        carve3(shadowstrength,vasewidth,flower)
+        carve3(shadow,vasewidth,flower,leadCames)
         pop()
       //back
         push()
@@ -303,7 +312,7 @@ vasewidth=20
         }else{
 
         }
-        carve3(shadowstrength,vasewidth,flower)
+        carve3(shadow,vasewidth,flower,leadCames)
         pop()
 
         //floor
@@ -315,7 +324,7 @@ vasewidth=20
           }else{
 
           }
-          carve3(shadowstrength,vasewidth,flower)
+          carve3(shadow,vasewidth,flower,leadCames)
           pop()
       //left
         push()
@@ -326,7 +335,7 @@ vasewidth=20
         }else{
 
         }
-        carve3(shadowstrength,vasewidth,flower)
+        carve3(shadow,vasewidth,flower,leadCames)
         pop()
 
 
@@ -339,7 +348,7 @@ vasewidth=20
         }else{
 
         }
-        carve3(shadowstrength,vasewidth,flower)
+        carve3(shadow,vasewidth,flower,leadCames)
         pop()
 
         //top
@@ -351,13 +360,13 @@ vasewidth=20
         }else{
 
         }
-        carve3(shadowstrength,vasewidth,flower)
+        carve3(shadow,vasewidth,flower,leadCames)
         pop()
         //
 
 }
 
-function carve3(uvfilter,vasewidth,flower){
+function carve3(uvfilter,vasewidth,flower,leadCames){
   angleMode(DEGREES)
   rectMode(CENTER)
 
@@ -373,14 +382,14 @@ function carve3(uvfilter,vasewidth,flower){
   for (k=0;k<150;k+=1){
     strokeWeight(0.5)
     stroke(hexToRgb(coloring3.color2))
-  // noFill()
+   noFill()
 //inner pin
-    //   rect(650+cos(30)*150+cos(30)*20+cos(30)*k,600,600-sin(30)*k,vasewidth,vasewidth)
+    //  rect(650+cos(30)*150+cos(30)*20+cos(30)*k,600,600-sin(30)*k,vasewidth,vasewidth)
 
   //corner pin
-     //rect(520+cos(30)*150+cos(30)*20+cos(30)*k,500,600-sin(30)*k,vasewidth,vasewidth)
+  //   rect(520+cos(30)*150+cos(30)*20+cos(30)*k,500,600-sin(30)*k,vasewidth,vasewidth)
 
-    stroke(hexToRgb(coloring3.color5))
+  //  stroke(hexToRgb(coloring3.color5))
 
 
   //  y2
@@ -398,7 +407,9 @@ function carve3(uvfilter,vasewidth,flower){
   }
 
 
-
+  kk=random(0,60);
+  ll=random(0,60);
+  pp=random(0,60);
 
   angleMode(DEGREES)
   rectMode(CENTER)
@@ -409,27 +420,33 @@ function carve3(uvfilter,vasewidth,flower){
    //c=(255,255,255)
    c.setAlpha(random(0,0));
     fill(255,255,255,10)
-    rect(450+cos(30)*k,430-sin(30)*k,50,50)
-    rect(450+cos(30)*k,500-sin(30)*k,50,50)
-    rect(450+cos(30)*k,570-sin(30)*k,50,50)
-    	rect(540+cos(30)*k,500-sin(30)*k,50,50)
+    rect(kk+450+cos(30)*k,430-sin(30)*k,vasewidth,vasewidth)
+    rect(kk+450+cos(30)*k,500-sin(30)*k,2*vasewidth,2*vasewidth)
+    rect(kk+450+cos(30)*k,570-sin(30)*k,vasewidth,vasewidth)
+    	rect(kk+540+cos(30)*k,500-sin(30)*k,1.3*vasewidth,1.3*vasewidth)
 
-    rect(570-cos(30)*k,500-sin(30)*k,vasewidth,vasewidth)
-    rect(570-cos(30)*k,500+sin(30)*k,vasewidth,vasewidth)
-    rect(486+cos(30)*k,430-sin(30)*k,vasewidth,vasewidth)
-    rect(486+cos(30)*k,430+sin(30)*k,vasewidth,vasewidth)
+    rect(ll+570-cos(30)*k,500-sin(30)*k,1.1*vasewidth,1.1*vasewidth)
+    rect(ll+570-cos(30)*k,500+sin(30)*k,vasewidth,vasewidth)
+    rect(ll+486+cos(30)*k,430-sin(30)*k,2*vasewidth,2*vasewidth)
+    rect(ll+486+cos(30)*k,430+sin(30)*k,1.8*vasewidth,1.8*vasewidth)
 
-    		rect(540+cos(30)*k,550+sin(30)*k,50,50)
+    		rect(pp+540+cos(30)*k,550+sin(30)*k,1.9*vasewidth,1.9*vasewidth)
 
-    	rect(670+cos(30)*k,500+sin(30)*k,50,50)
+    	rect(pp+670+cos(30)*k,500+sin(30)*k,vasewidth,vasewidth)
 
-    rect(600+cos(30)*150+cos(30)*k,600-sin(30)*150-sin(30)*k,vasewidth,vasewidth)
-    rect(650+cos(30)*150+cos(30)*k,530-sin(30)*150+sin(30)*k,vasewidth,vasewidth)
-    rect(650+cos(30)*150+cos(30)*k,530-sin(30)*150-sin(30)*k,vasewidth,vasewidth)
+    rect(pp+600+cos(30)*150+cos(30)*k,600-sin(30)*150-sin(30)*k,1.2*vasewidth,1.2*vasewidth)
+    rect(pp+pp+650+cos(30)*150+cos(30)*k,530-sin(30)*150+sin(30)*k,1.3*vasewidth,1.3*vasewidth)
+    rect(pp+650+cos(30)*150+cos(30)*k,530-sin(30)*150-sin(30)*k,vasewidth,vasewidth)
 
 
-    	rect(770+cos(30)*k,400+sin(30)*k,50,50)
-    	rect(680+cos(30)*150+cos(30)*k,600-sin(30)*150+sin(30)*k,50,50)
+    	rect(kk+770+cos(30)*k,ll+400+sin(30)*k,vasewidth,vasewidth)
+    	rect(pp+680+cos(30)*150+cos(30)*k,kk+600-sin(30)*150+sin(30)*k,vasewidth,vasewidth)
+
+
+      rect(kk+570+cos(30)*k,ll+500+sin(30)*k,1.1*vasewidth,1.1*vasewidth)
+      rect(pp+570+cos(30)*k,pp+500+sin(30)*k,vasewidth,vasewidth)
+      rect(ll+486+cos(30)*k,kk+430-sin(30)*k,2*vasewidth,2*vasewidth)
+      rect(kk+486+cos(30)*k,ll+430+sin(30)*k,1.8*vasewidth,1.8*vasewidth)
 
   }
 
@@ -518,6 +535,9 @@ beginShape()
 c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
 c.setAlpha(uvfilter);
 fill(c)
+c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+c.setAlpha(uvfilter);
+stroke(c)
 strokeWeight(leadCames)
   vertex(y1[0],y1[1]);
   vertex(y2[0],y2[1]);
@@ -528,6 +548,9 @@ beginShape()
 c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
 c.setAlpha(uvfilter);
 fill(c)
+c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+c.setAlpha(uvfilter);
+stroke(c)
 strokeWeight(leadCames)
   vertex(y6[0],y6[1]);
   vertex(y1[0],y1[1]);
@@ -540,6 +563,9 @@ beginShape()
 c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
 c.setAlpha(uvfilter);
 fill(c)
+c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+c.setAlpha(uvfilter);
+stroke(c)
 strokeWeight(leadCames)
   vertex(y6[0],y6[1]);
   vertex(y1[0],y1[1]);
@@ -550,6 +576,9 @@ beginShape()
 c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
 c.setAlpha(uvfilter);
 fill(c)
+c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+c.setAlpha(uvfilter);
+stroke(c)
 strokeWeight(leadCames)
   vertex(y6[0],y6[1]);
   vertex(y7[0],y7[1]);
@@ -560,6 +589,9 @@ beginShape()
 c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
 c.setAlpha(uvfilter);
 fill(c)
+c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+c.setAlpha(uvfilter);
+stroke(c)
 strokeWeight(leadCames)
   vertex(y2[0],y2[1]);
   vertex(y3[0],y3[1]);
@@ -570,6 +602,9 @@ beginShape()
 c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
 c.setAlpha(uvfilter);
 fill(c)
+c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+c.setAlpha(uvfilter);
+stroke(c)
 strokeWeight(leadCames)
   vertex(y6[0],y6[1]);
   vertex(y7[0],y7[1]);
@@ -582,6 +617,9 @@ beginShape()
 c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
 c.setAlpha(uvfilter);
 fill(c)
+c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+c.setAlpha(uvfilter);
+stroke(c)
 strokeWeight(leadCames)
   vertex(y6[0],y6[1]);
   vertex(y3[0],y3[1]);
@@ -594,6 +632,9 @@ beginShape()
 c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
 c.setAlpha(uvfilter);
 fill(c)
+c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+c.setAlpha(uvfilter);
+stroke(c)
 strokeWeight(leadCames)
   vertex(y1[0],y1[1]);
   vertex(y4[0],y4[1]);
@@ -602,15 +643,16 @@ strokeWeight(leadCames)
 
 endShape(CLOSE)
 
-
-for (k=0;k<500;k+=1){
+vasewidth=vasewidth*0.5
+boxsize=random(200,400);
+for (k=0;k<boxsize;k+=1){
   strokeWeight(0.5)
   //noFill()
   stroke(hexToRgb(coloring3.color6))
-  rect(170+cos(30)*k,500+sin(30)*k,vasewidth,vasewidth)
-  rect(170+cos(30)*k,500-sin(30)*k,vasewidth,vasewidth)
-  rect(cos(30)*500+170+cos(30)*(500-k),400+350-sin(30)*(500-k),vasewidth,vasewidth)
-  rect(cos(30)*500+170+cos(30)*500-cos(30)*k,400+350-sin(30)*500-sin(30)*k,vasewidth,vasewidth)
+  rect(170+cos(30)*k,boxsize+sin(30)*k,vasewidth,vasewidth)
+  rect(170+cos(30)*k,boxsize-sin(30)*k,vasewidth,vasewidth)
+  rect(cos(30)*boxsize+170+cos(30)*(boxsize-k),400+350-sin(30)*(boxsize-k),vasewidth,vasewidth)
+  rect(cos(30)*boxsize+170+cos(30)*boxsize-cos(30)*k,400+350-sin(30)*boxsize-sin(30)*k,vasewidth,vasewidth)
   strokeWeight(0.1)
   stroke(hexToRgb(coloring3.color6))
   //corner
