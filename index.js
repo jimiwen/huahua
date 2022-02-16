@@ -292,15 +292,16 @@ reflection=random(-18,18)
             //
 
       //
-      //
+
 
 
 backgroundlucent=255
 
       background(random(0,255),random(0,255),random(0,255),backgroundlucent)
 
+  blendMode(ADD)
 
-//blendMode(REPLACE)
+  blendMode(DARKEST )
 
     fill(random(0,255),random(0,255),random(0,255))
 //ground
@@ -308,14 +309,17 @@ backgroundlucent=255
 
 //blendMode(REPLACE)
 
-   blendMode(DIFFERENCE)
+   blendMode(DARKEST)
 
 //dot
       fill(random(0,255),random(0,255),random(0,255))
+      noStroke()
     circle(random(300,1000),200-random(-150,150),random(50,150))
 
+
 //sky
-    fill(random(0,255),random(0,255),random(0,255))
+    c=fill(random(0,255),random(0,255),random(0,255))
+    stroke(c)
     rect(600,0,1200,1000+random(200,400))
 
 
@@ -329,13 +333,14 @@ backgroundlucent=255
       rect(1200,300,random(300,600),1000+random(100,900))
 
 
-blendMode(LIGHTEST)
+//blendMode(LIGHTEST)
+blendMode(DARKEST)
 
   let	x = 600+random(-200,200)
   let y = 600+random(-200,200)
 
 
-let uvfilter=random(250,250)
+let uvfilter=random(150,250)
 blendMode(LIGHTEST)
 //right
   push()
@@ -383,7 +388,7 @@ blendMode(LIGHTEST)
 
   //
   //
-
+//
 
 
 
@@ -497,15 +502,42 @@ function carve3(uvfilter,vasewidth,flower){
   //
 
 if (flower=1){
-  carve2(600+cos(30)*150,600-sin(30)*150,20,0)
-   carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,20,0)
-    carve2(486+cos(30)*20,430-sin(30)*20,20,0)
-   carve2(570-cos(30)*20,500+sin(30)*20,20,0)
+  position=carve2(600+cos(30)*150,600-sin(30)*150,16,0)
+  //console.log(position)
+    carve2(position[0],position[1],8,0)
+    carve2(position[0],position[1],4,0)
+    carve2(position[0],position[1],2,0)
 
-     carve2(600+cos(30)*150,600-sin(30)*150,20,0)
-      carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,20,0)
-       carve2(486+cos(30)*20,430-sin(30)*20,20,0)
-      carve2(570-cos(30)*20,500+sin(30)*20,20,0)
+
+    position=carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,16,0)
+    //console.log(position)
+      carve2(position[0],position[1],8,0)
+      carve2(position[0],position[1],4,0)
+      carve2(position[0],position[1],2,0)
+
+     position=carve2(486+cos(30)*20,430-sin(30)*20,16,0)
+     carve2(position[0],position[1],8,0)
+     carve2(position[0],position[1],4,0)
+     carve2(position[0],position[1],2,0)
+
+     position=carve2(600+cos(30)*150,600-sin(30)*150,16,0)
+     //console.log(position)
+       carve2(position[0],position[1],8,0)
+       carve2(position[0],position[1],4,0)
+       carve2(position[0],position[1],2,0)
+
+
+       position=carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,16,0)
+       //console.log(position)
+         carve2(position[0],position[1],8,0)
+         carve2(position[0],position[1],4,0)
+         carve2(position[0],position[1],2,0)
+
+        position=carve2(486+cos(30)*20,430-sin(30)*20,16,0)
+        carve2(position[0],position[1],8,0)
+        carve2(position[0],position[1],4,0)
+        carve2(position[0],position[1],2,0)
+
 }else{
 
 }
@@ -869,7 +901,8 @@ if (random(0,1)<0.5){
   fill(c)
   noFill();
 }
-//return x,y,shapesize;
+position=[x,y];
+return position;
 }
 
 //     License : Copyright (C) 2022 Jimi Y. C. Wen . All rights reserved.\n
