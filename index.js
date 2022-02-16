@@ -128,11 +128,11 @@ if (colorpicker < 0.15 ){
 
 
 function setup() {
- randomSeed(int(fxrand()*100000000))
+  randomSeed(int(fxrand()*100000000))
 
   let width =1200
   let height = 1600
-blendMode(EXCLUSION)
+  blendMode(EXCLUSION)
   createCanvas(width, height);
   // put setup code here
   left_x = int(width * -0.5)
@@ -149,11 +149,11 @@ blendMode(EXCLUSION)
   //	print('num_rows'+ num_rows)
 
 
-  coloring={
-    color1: '#b9c2b8',
-    color2: '#d0dbd8',
-    color3: '#debe95',
-  }
+  // coloring={
+  //   color1: '#b9c2b8',
+  //   color2: '#d0dbd8',
+  //   color3: '#debe95',
+  // }
 
   coloring2={
     color1:'#514059',
@@ -181,61 +181,61 @@ function draw() {
   turn=random(-0,0)
   hs=random(0,0)
   vs=random(0,0)
-leadCames=random(0.1,5)
-blendMode(DIFFERENCE)
+  leadCames=random(0.1,5)
+  blendMode(DIFFERENCE)
 
 
   angleMode(DEGREES)
   rectMode(CENTER)
-    colorMode(RGB,255);
+  colorMode(RGB,255);
 
-    shadowstrength=random(60,110)
-    reflection=random(-3.8,3.8)
-drawCube(shadowstrength,reflection,1,1,hs,vs,leadCames)
+  shadowstrength=random(60,110)
+  reflection=random(-3.8,3.8)
+  drawCube(shadowstrength,reflection,1,1,hs,vs,leadCames)
 
-shadowstrength=random(60,110)
-reflection=random(-3.8,3.8)
-drawCube(shadowstrength,reflection,1,1,hs,vs,leadCames)
+  shadowstrength=random(60,110)
+  reflection=random(-3.8,3.8)
+  drawCube(shadowstrength,reflection,1,1,hs,vs,leadCames)
 
 
 
-backgroundlucent=255
-      background(random(0,255),random(0,255),random(0,255),backgroundlucent)
-//  blendMode(ADD)//overexposed background
-//blendMode(DIFFERENCE) //complex background
-//blendMode(MULTIPLY) //too green
-//blendMode(SCREEN) //Lighter
-blendMode(OVERLAY) //ok maybe
-//blendMode(HARD_LIGHT )//ok maybe
-//blendMode(LIGHTEST) // no good details gone
-//do nothing stark contrast
-//blendMode(DODGE) //bright contrast exposed sometime details gone
-//blendMode(BURN)
+  backgroundlucent=255
+  background(random(0,255),random(0,255),random(0,255),backgroundlucent)
+  //  blendMode(ADD)//overexposed background
+  //blendMode(DIFFERENCE) //complex background
+  //blendMode(MULTIPLY) //too green
+  //blendMode(SCREEN) //Lighter
+  blendMode(OVERLAY) //ok maybe
+  //blendMode(HARD_LIGHT )//ok maybe
+  //blendMode(LIGHTEST) // no good details gone
+  //do nothing stark contrast
+  //blendMode(DODGE) //bright contrast exposed sometime details gone
+  //blendMode(BURN)
   //blendMode(DARKEST ) //no good??
 
-    fill(random(0,255),random(0,255),random(0,255))
-//ground
-    rect(600,1200,1200,1000+random(200,400))
+  fill(random(0,255),random(0,255),random(0,255))
+  //ground
+  rect(600,1200,1200,1000+random(200,400))
   // blendMode(DARKEST)
 
-//dot
-      fill(random(0,255),random(0,255),random(0,255))
-      strokeWeight(0.1)
-    circle(random(300,1000),200-random(-150,150),random(50,150))
+  //dot
+  fill(random(0,255),random(0,255),random(0,255))
+  strokeWeight(0.1)
+  circle(random(300,1000),200-random(-150,150),random(50,150))
   strokeWeight(1)
-//sky
-    fill(random(0,255),random(0,255),random(0,255))
-    rect(600,0,1200,1000+random(200,400))
+  //sky
+  fill(random(0,255),random(0,255),random(0,255))
+  rect(600,0,1200,1000+random(200,400))
 
 
-    fill(random(0,255),random(0,255),random(0,255))
-    rect(600,1200,1400,200+random(0,300))
+  fill(random(0,255),random(0,255),random(0,255))
+  rect(600,1200,1400,200+random(0,300))
 
   blendMode(ADD)
-    c=([random(0,255),random(0,255),random(0,255),255]);
-      fill(c)
-      drawstonesteps(c)
-      rect(1200,300,random(300,600),1000+random(100,900))
+  c=([random(0,255),random(0,255),random(0,255),255]);
+  fill(c)
+  drawstonesteps(c)
+  rect(1200,300,random(300,600),1000+random(100,900))
 
 
 
@@ -244,16 +244,18 @@ blendMode(OVERLAY) //ok maybe
   // let	x = 600+random(-200,200)
   // let y = 600+random(-200,200)
   //
-//blendMode(LIGHTEST)
-//blendMode(DARKEST) //darker constrast
-blendMode(ADD)//jumps out negatie frame
-//blendMode(OVERLAY)//jumpsout dark frame
-uvfilter=random(250,250)
-reflection=random(-0.15,0.15)
-hs=random([-30, 0, 0,0,0, 30])
-vs=random([-30, 0,0,0,0, 30])
+  blendMode(LIGHTEST)
+  uvfilter=random(200,200)
+  //blendMode(ADD)//jumps out negatie frame
+  //blendMode(OVERLAY)//jumpsout dark frame
+  //uvfilter=random(250,250)
 
-drawCube(uvfilter,reflection,1,0,hs,vs,leadCames)
+
+  reflection=random(-0.1,0.1)
+  hs=random([-30, 0, 0,0,0, 30])
+  vs=random([-30, 0,0,0,0, 30])
+
+  drawCube(uvfilter,reflection,1,0,hs,vs,leadCames)
 
 
   noLoop()
@@ -262,107 +264,122 @@ drawCube(uvfilter,reflection,1,0,hs,vs,leadCames)
 }
 
 function exportImage() {
-    save(`void_${fxhash}.png`)
+  save(`void_${fxhash}.png`)
 }
 
 
 
 function keyReleased() {
-    "1" == key && exportImage()
+  "1" == key && exportImage()
 }
 
 function drawstonesteps(c){
   fill(c)
   push()
-  rotate(9)
-  ellipse(180+300,1200,280,120)
-pop()
-push()
-rotate(random(-3,8))
-  ellipse(180+30,1200+200,280/1.2,130/2)
-pop()
-push()
-rotate(-10)
-  ellipse(180+330,1200+350,280/1.7,130/1.8)
+  rotate(9+random(-2,2))
+  ellipse(180+300+random(-2,2),1200+random(-2,2),280+random(-2,2),120+random(-2,2))
+  pop()
+  push()
+  rotate(random(-3,8))
+  ellipse(180+30+random(-2,2),1200+200+random(-2,2),280/1.2+random(-2,2),130/2+random(-2,2))
+  pop()
+  push()
+  rotate(-10+random(-2,2))
+  ellipse(180+330+random(-2,2),1200+350+random(-2,2),280/1.7+random(-2,2),130/1.8+random(-2,2))
+  pop()
+
+
+  fill(c)
+  push()
+  rotate(9+random(-2,2))
+  ellipse(700+300+random(-2,2),700+random(-2,2),140+random(-2,2),60+random(-2,2))
+  pop()
+  push()
+  rotate(random(-3,3))
+  ellipse(800+random(-2,2),650+random(-2,2),140/1.4+random(-2,2),80/2+random(-2,2))
+  pop()
+  push()
+  rotate(3+random(-3,3))
+  ellipse(1150+random(-2,2),650+random(-2,2),140/1.7+random(-2,2),60/1.8+random(-2,2))
   pop()
 }
 
 function drawCube(shadow,reflection,flower,stretch,hs,vs,leadCames){
-horizontal_shift=hs;
-vertical_shift=vs;
+  horizontal_shift=hs;
+  vertical_shift=vs;
   console.log(reflection)
-vasewidth=20
-      //right
-        push()
-        rotate(60+turn+reflection*random(-10,10))
-        translate(200+horizontal_shift,-800+vertical_shift)
-        if(stretch==1){
-              scale(random([0.5,1,2]), random([0.5, 1 ,2]));
-        }else{
+  vasewidth=20
+  //right
+  push()
+  rotate(60+turn+reflection*random(-10,10))
+  translate(200+horizontal_shift,-800+vertical_shift)
+  if(stretch==1){
+    scale(random([0.5,1,2]), random([0.5, 1 ,2]));
+  }else{
 
-        }
-        carve3(shadow,vasewidth,flower,leadCames)
-        pop()
-      //back
-        push()
-        rotate(-60+turn+reflection*random(-10,10))
-        translate(-900+horizontal_shift,100+vertical_shift)
-        if(stretch==1){
-              scale(random([0.5, 1, 2]), random([0.5, 1 ,2]));
-        }else{
+  }
+  carve3(shadow,vasewidth,flower,leadCames)
+  pop()
+  //back
+  push()
+  rotate(-60+turn+reflection*random(-10,10))
+  translate(-900+horizontal_shift,100+vertical_shift)
+  if(stretch==1){
+    scale(random([0.5, 1, 2]), random([0.5, 1 ,2]));
+  }else{
 
-        }
-        carve3(shadow,vasewidth,flower,leadCames)
-        pop()
+  }
+  carve3(shadow,vasewidth,flower,leadCames)
+  pop()
 
-        //floor
-          push()
-          rotate(0+turn+reflection*random(-10,10))
-          translate(-100+horizontal_shift,340+vertical_shift)
-          if(stretch==1){
-            scale(random([0.5, 1, 2]), random([0.5, 1 ,2]));
-          }else{
+  //floor
+  push()
+  rotate(0+turn+reflection*random(-10,10))
+  translate(-100+horizontal_shift,340+vertical_shift)
+  if(stretch==1){
+    scale(random([0.5, 1, 2]), random([0.5, 1 ,2]));
+  }else{
 
-          }
-          carve3(shadow,vasewidth,flower,leadCames)
-          pop()
-      //left
-        push()
-        rotate(60+turn+reflection*random(-10,10))
-        translate(100+horizontal_shift,-180+vertical_shift)
-        if(stretch==1){
-              scale(random([0.5, 1, 2]), random([0.5, 1 ,2]));
-        }else{
+  }
+  carve3(shadow,vasewidth,flower,leadCames)
+  pop()
+  //left
+  push()
+  rotate(60+turn+reflection*random(-10,10))
+  translate(100+horizontal_shift,-180+vertical_shift)
+  if(stretch==1){
+    scale(random([0.5, 1, 2]), random([0.5, 1 ,2]));
+  }else{
 
-        }
-        carve3(shadow,vasewidth,flower,leadCames)
-        pop()
+  }
+  carve3(shadow,vasewidth,flower,leadCames)
+  pop()
 
 
-      //front
-        push()
-        rotate(-60+turn+reflection*random(-10,10))
-        translate(-1200+horizontal_shift,600+vertical_shift)
-        if(stretch==1){
-              scale(random([0.5, 1, 2]), random([0.5, 1 ,2]));
-        }else{
+  //front
+  push()
+  rotate(-60+turn+reflection*random(-10,10))
+  translate(-1200+horizontal_shift,600+vertical_shift)
+  if(stretch==1){
+    scale(random([0.5, 1, 2]), random([0.5, 1 ,2]));
+  }else{
 
-        }
-        carve3(shadow,vasewidth,flower,leadCames)
-        pop()
+  }
+  carve3(shadow,vasewidth,flower,leadCames)
+  pop()
 
-        //top
-        push()
-        rotate(0+turn+reflection*random(-10,10))
-        translate(-100+horizontal_shift,-100+vertical_shift)
-        if(stretch==1){
-        scale(random([0.5 ,1 ,2]), random([0.5, 1, 2]));
-        }else{
+  //top
+  push()
+  rotate(0+turn+reflection*random(-10,10))
+  translate(-100+horizontal_shift,-100+vertical_shift)
+  if(stretch==1){
+    scale(random([0.5 ,1 ,2]), random([0.5, 1, 2]));
+  }else{
 
-        }
-        carve3(shadow,vasewidth,flower,leadCames)
-        pop()
-        //
+  }
+  carve3(shadow,vasewidth,flower,leadCames)
+  pop()
+  //
 
 }
 
@@ -378,29 +395,29 @@ function carve3(uvfilter,vasewidth,flower,leadCames){
   c.setAlpha(random(50,200));
   fill(c)
 
-
+  vasewidth=vasewidth*0.5;
   for (k=0;k<150;k+=1){
     strokeWeight(0.5)
     stroke(hexToRgb(coloring3.color2))
-   noFill()
-//inner pin
+    noFill()
+    //inner pin
     //  rect(650+cos(30)*150+cos(30)*20+cos(30)*k,600,600-sin(30)*k,vasewidth,vasewidth)
 
-  //corner pin
-  //   rect(520+cos(30)*150+cos(30)*20+cos(30)*k,500,600-sin(30)*k,vasewidth,vasewidth)
+    //corner pin
+    //   rect(520+cos(30)*150+cos(30)*20+cos(30)*k,500,600-sin(30)*k,vasewidth,vasewidth)
 
-  //  stroke(hexToRgb(coloring3.color5))
+    //  stroke(hexToRgb(coloring3.color5))
 
 
-  //  y2
-     rect(650+cos(30)*150+cos(30)*20+cos(30)*(150-k)/1.8,530-sin(30)*150-sin(30)*20-sin(30)*(150-k)/1.8,vasewidth,vasewidth)
+    //  y2
+    rect(650+cos(30)*150+cos(30)*20+cos(30)*(150-k)/1.8,530-sin(30)*150-sin(30)*20-sin(30)*(150-k)/1.8,vasewidth,vasewidth)
 
-  //y3
-  rect(600+cos(30)*k,600-sin(30)*k,vasewidth,vasewidth)
-  rect(600+cos(30)*k,600+sin(30)*k,vasewidth,vasewidth)
+    //y3
+    rect(600+cos(30)*k,600-sin(30)*k,vasewidth,vasewidth)
+    rect(600+cos(30)*k,600+sin(30)*k,vasewidth,vasewidth)
 
-  //y1
-     rect(406+cos(30)*k/1.33,364+sin(30)*k/1.33,vasewidth,vasewidth)
+    //y1
+    rect(406+cos(30)*k/1.33,364+sin(30)*k/1.33,vasewidth,vasewidth)
 
 
 
@@ -413,48 +430,48 @@ function carve3(uvfilter,vasewidth,flower,leadCames){
 
   angleMode(DEGREES)
   rectMode(CENTER)
-
-  for (k=0;k<20;k+=1){
+  vasewidth2=random([0.5,1,2,4])*vasewidth;
+  for (k=0;k<random(10,30);k+=1){
     strokeWeight(0.5)
     c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-   //c=(255,255,255)
-   c.setAlpha(random(0,0));
+    //c=(255,255,255)
+    c.setAlpha(random(0,0));
     fill(255,255,255,10)
-    rect(kk+450+cos(30)*k,430-sin(30)*k,vasewidth,vasewidth)
-    rect(kk+450+cos(30)*k,500-sin(30)*k,2*vasewidth,2*vasewidth)
-    rect(kk+450+cos(30)*k,570-sin(30)*k,vasewidth,vasewidth)
-    	rect(kk+540+cos(30)*k,500-sin(30)*k,1.3*vasewidth,1.3*vasewidth)
+    rect(kk+450+cos(30)*k,430-sin(30)*k,vasewidth2,vasewidth2)
+    rect(kk+450+cos(30)*k,500-sin(30)*k,2*vasewidth2,2*vasewidth2)
+    rect(kk+450+cos(30)*k,570-sin(30)*k,vasewidth2,vasewidth2)
+    rect(kk+540+cos(30)*k,500-sin(30)*k,1.3*vasewidth2,1.3*vasewidth2)
 
-    rect(ll+570-cos(30)*k,500-sin(30)*k,1.1*vasewidth,1.1*vasewidth)
-    rect(ll+570-cos(30)*k,500+sin(30)*k,vasewidth,vasewidth)
-    rect(ll+486+cos(30)*k,430-sin(30)*k,2*vasewidth,2*vasewidth)
-    rect(ll+486+cos(30)*k,430+sin(30)*k,1.8*vasewidth,1.8*vasewidth)
+    rect(ll+570-cos(30)*k,500-sin(30)*k,1.1*vasewidth2,1.1*vasewidth2)
+    rect(ll+570-cos(30)*k,500+sin(30)*k,vasewidth2,vasewidth2)
+    rect(ll+486+cos(30)*k,430-sin(30)*k,2*vasewidth2,2*vasewidth2)
+    rect(ll+486+cos(30)*k,430+sin(30)*k,1.8*vasewidth2,1.8*vasewidth2)
 
-    		rect(pp+540+cos(30)*k,550+sin(30)*k,1.9*vasewidth,1.9*vasewidth)
+    rect(pp+540+cos(30)*k,550+sin(30)*k,1.9*vasewidth2,1.9*vasewidth2)
 
-    	rect(pp+670+cos(30)*k,500+sin(30)*k,vasewidth,vasewidth)
+    rect(pp+670+cos(30)*k,500+sin(30)*k,vasewidth2,vasewidth2)
 
-    rect(pp+600+cos(30)*150+cos(30)*k,600-sin(30)*150-sin(30)*k,1.2*vasewidth,1.2*vasewidth)
-    rect(pp+pp+650+cos(30)*150+cos(30)*k,530-sin(30)*150+sin(30)*k,1.3*vasewidth,1.3*vasewidth)
-    rect(pp+650+cos(30)*150+cos(30)*k,530-sin(30)*150-sin(30)*k,vasewidth,vasewidth)
-
-
-    	rect(kk+770+cos(30)*k,ll+400+sin(30)*k,vasewidth,vasewidth)
-    	rect(pp+680+cos(30)*150+cos(30)*k,kk+600-sin(30)*150+sin(30)*k,vasewidth,vasewidth)
+    rect(pp+600+cos(30)*150+cos(30)*k,600-sin(30)*150-sin(30)*k,1.2*vasewidth2,1.2*vasewidth2)
+    rect(pp+pp+650+cos(30)*150+cos(30)*k,530-sin(30)*150+sin(30)*k,1.3*vasewidth2,1.3*vasewidth2)
+    rect(pp+650+cos(30)*150+cos(30)*k,530-sin(30)*150-sin(30)*k,vasewidth2,vasewidth2)
 
 
-      rect(kk+570+cos(30)*k,ll+500+sin(30)*k,1.1*vasewidth,1.1*vasewidth)
-      rect(pp+570+cos(30)*k,pp+500+sin(30)*k,vasewidth,vasewidth)
-      rect(ll+486+cos(30)*k,kk+430-sin(30)*k,2*vasewidth,2*vasewidth)
-      rect(kk+486+cos(30)*k,ll+430+sin(30)*k,1.8*vasewidth,1.8*vasewidth)
+    rect(kk+770+cos(30)*k,ll+400+sin(30)*k,vasewidth2,vasewidth2)
+    rect(pp+680+cos(30)*150+cos(30)*k,kk+600-sin(30)*150+sin(30)*k,vasewidth2,vasewidth2)
+
+
+    rect(kk+570+cos(30)*k,ll+500+sin(30)*k,1.1*vasewidth2,1.1*vasewidth2)
+    rect(pp+570+cos(30)*k,pp+500+sin(30)*k,vasewidth2,vasewidth2)
+    rect(ll+486+cos(30)*k,kk+430-sin(30)*k,2*vasewidth2,2*vasewidth2)
+    rect(kk+486+cos(30)*k,ll+430+sin(30)*k,1.8*vasewidth2,1.8*vasewidth2)
 
   }
 
   //
 
-if (flower==1){
-  position=carve2(600+cos(30)*150,600-sin(30)*150,16,0)
-  //console.log(position)
+  if (flower==1){
+    position=carve2(600+cos(30)*150,600-sin(30)*150,16,0)
+    //console.log(position)
     carve2(position[0],position[1],8,0)
     carve2(position[0],position[1],4,0)
     carve2(position[0],position[1],2,0)
@@ -462,218 +479,246 @@ if (flower==1){
 
     position=carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,16,0)
     //console.log(position)
-      carve2(position[0],position[1],8,0)
-      carve2(position[0],position[1],4,0)
-      carve2(position[0],position[1],2,0)
+    carve2(position[0],position[1],8,0)
+    carve2(position[0],position[1],4,0)
+    carve2(position[0],position[1],2,0)
 
-     position=carve2(486+cos(30)*20,430-sin(30)*20,16,0)
-     carve2(position[0],position[1],8,0)
-     carve2(position[0],position[1],4,0)
-     carve2(position[0],position[1],2,0)
+    position=carve2(486+cos(30)*20,430-sin(30)*20,16,0)
+    carve2(position[0],position[1],8,0)
+    carve2(position[0],position[1],4,0)
+    carve2(position[0],position[1],2,0)
 
-     position=carve2(600+cos(30)*150,600-sin(30)*150,16,0)
-     //console.log(position)
-       carve2(position[0],position[1],8,0)
-       carve2(position[0],position[1],4,0)
-       carve2(position[0],position[1],2,0)
+    position=carve2(600+cos(30)*150,600-sin(30)*150,16,0)
+    //console.log(position)
+    carve2(position[0],position[1],8,0)
+    carve2(position[0],position[1],4,0)
+    carve2(position[0],position[1],2,0)
 
 
-       position=carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,16,0)
-       //console.log(position)
-         carve2(position[0],position[1],8,0)
-         carve2(position[0],position[1],4,0)
-         carve2(position[0],position[1],2,0)
+    position=carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,16,0)
+    //console.log(position)
+    carve2(position[0],position[1],8,0)
+    carve2(position[0],position[1],4,0)
+    carve2(position[0],position[1],2,0)
 
-        position=carve2(486+cos(30)*20,430-sin(30)*20,16,0)
-        carve2(position[0],position[1],8,0)
-        carve2(position[0],position[1],4,0)
-        carve2(position[0],position[1],2,0)
+    position=carve2(486+cos(30)*20,430-sin(30)*20,16,0)
+    carve2(position[0],position[1],8,0)
+    carve2(position[0],position[1],4,0)
+    carve2(position[0],position[1],2,0)
 
-}else{
+  }else{
 
-}
+  }
 
 
   angleMode(DEGREES)
   rectMode(CENTER)
-k=499
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(random(50,200));
-fill(c)
+  k=499
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(random(50,200));
+  fill(c)
+
   x1=[170+cos(30)*k,500+sin(30)*k];
-    x3=[170+cos(30)*k,500-sin(30)*k];
-    x2=[cos(30)*500+170+cos(30)*k,400+350-sin(30)*k];
-      x4=[cos(30)*500+170-cos(30)*k,400+350-sin(30)*k];
+  x3=[170+cos(30)*k,500-sin(30)*k];
+  x2=[cos(30)*500+170+cos(30)*k,400+350-sin(30)*k];
+  x4=[cos(30)*500+170-cos(30)*k,400+350-sin(30)*k];
 
-      y1=[406+cos(30)*150/1.33,364+sin(30)*150/1.33];
-      y4=[406+cos(30)*0/1.33,364+sin(30)*0/1.33];
+  y1=[406+cos(30)*150/1.33,364+sin(30)*150/1.33];
+  y4=[406+cos(30)*0/1.33,364+sin(30)*0/1.33];
 
-      y2=[650+cos(30)*150+cos(30)*20+cos(30)*0/1.8,530-sin(30)*150-sin(30)*20-sin(30)*0/1.8];
-      y5=[650+cos(30)*150+cos(30)*20+cos(30)*150/1.8,530-sin(30)*150-sin(30)*20-sin(30)*150/1.8];
+  y2=[650+cos(30)*150+cos(30)*20+cos(30)*0/1.8,530-sin(30)*150-sin(30)*20-sin(30)*0/1.8];
+  y5=[650+cos(30)*150+cos(30)*20+cos(30)*150/1.8,530-sin(30)*150-sin(30)*20-sin(30)*150/1.8];
 
   y3=[600+cos(30)*149,600-sin(30)*149];
-      y6=[600+cos(30)*0,600-sin(30)*0];
-    y7=[600+cos(30)*149,600+sin(30)*149];
+  y6=[600+cos(30)*0,600-sin(30)*0];
+  y7=[600+cos(30)*149,600+sin(30)*149];
+  strokeWeight(100)
+  connectlines(x1)
+  connectlines(x2)
+  connectlines(x3)
+  connectlines(x4)
+  connectlines(y1)
+  connectlines(y2)
+  connectlines(y3)
+  connectlines(y4)
+  connectlines(y5)
+  connectlines(y6)
+  connectlines(y7)
 
 
+  // beginShape()
+  // c=hexToRgb((coloring3.color2));
+  // c.setAlpha(180);
+  // fill(c)
+  // strokeWeight(1)
+  //   vertex(x1[0],x1[1]);
+  //   vertex(x2[0],x2[1]);
+  //  vertex(x3[0],x3[1]);
+  //  vertex(x4[0],x4[1]);
+  // endShape(CLOSE)
 
-// beginShape()
-// c=hexToRgb((coloring3.color2));
-// c.setAlpha(180);
-// fill(c)
-// strokeWeight(1)
-//   vertex(x1[0],x1[1]);
-//   vertex(x2[0],x2[1]);
-//  vertex(x3[0],x3[1]);
-//  vertex(x4[0],x4[1]);
-// endShape(CLOSE)
 
-
-//
-//console.log(uvfilter)
-beginShape()
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-fill(c)
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-stroke(c)
-strokeWeight(leadCames)
+  //
+  //console.log(uvfilter)
+  beginShape()
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  fill(c)
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  stroke(c)
+  strokeWeight(leadCames)
   vertex(y1[0],y1[1]);
   vertex(y2[0],y2[1]);
   vertex(y3[0],y3[1]);
-endShape(CLOSE)
+  endShape(CLOSE)
 
-beginShape()
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-fill(c)
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-stroke(c)
-strokeWeight(leadCames)
+  beginShape()
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  fill(c)
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  stroke(c)
+  strokeWeight(leadCames)
   vertex(y6[0],y6[1]);
   vertex(y1[0],y1[1]);
   vertex(y4[0],y4[1]);
   vertex(x4[0],x4[1]);
   vertex(x1[0],x1[1]);
-endShape(CLOSE)
+  endShape(CLOSE)
 
-beginShape()
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-fill(c)
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-stroke(c)
-strokeWeight(leadCames)
+  beginShape()
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  fill(c)
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  stroke(c)
+  strokeWeight(leadCames)
   vertex(y6[0],y6[1]);
   vertex(y1[0],y1[1]);
   vertex(y3[0],y3[1]);
-endShape(CLOSE)
+  endShape(CLOSE)
 
-beginShape()
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-fill(c)
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-stroke(c)
-strokeWeight(leadCames)
+  beginShape()
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  fill(c)
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  stroke(c)
+  strokeWeight(leadCames)
   vertex(y6[0],y6[1]);
   vertex(y7[0],y7[1]);
   vertex(x1[0],x1[1]);
-endShape(CLOSE)
+  endShape(CLOSE)
 
-beginShape()
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-fill(c)
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-stroke(c)
-strokeWeight(leadCames)
+  beginShape()
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  fill(c)
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  stroke(c)
+  strokeWeight(leadCames)
   vertex(y2[0],y2[1]);
   vertex(y3[0],y3[1]);
   vertex(x2[0],x2[1]);
-endShape(CLOSE)
+  endShape(CLOSE)
 
-beginShape()
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-fill(c)
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-stroke(c)
-strokeWeight(leadCames)
+  beginShape()
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  fill(c)
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  stroke(c)
+  strokeWeight(leadCames)
   vertex(y6[0],y6[1]);
   vertex(y7[0],y7[1]);
   vertex(y3[0],y3[1]);
-    vertex(x2[0],x2[1]);
-endShape(CLOSE)
+  vertex(x2[0],x2[1]);
+  endShape(CLOSE)
 
 
-beginShape()
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-fill(c)
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-stroke(c)
-strokeWeight(leadCames)
+  beginShape()
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  fill(c)
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  stroke(c)
+  strokeWeight(leadCames)
   vertex(y6[0],y6[1]);
   vertex(y3[0],y3[1]);
   vertex(y7[0],y7[1]);
-    vertex(x2[0],x2[1]);
-endShape(CLOSE)
+  vertex(x2[0],x2[1]);
+  endShape(CLOSE)
 
 
-beginShape()
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-fill(c)
-c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
-c.setAlpha(uvfilter);
-stroke(c)
-strokeWeight(leadCames)
+  beginShape()
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  fill(c)
+  c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
+  c.setAlpha(uvfilter);
+  stroke(c)
+  strokeWeight(leadCames)
   vertex(y1[0],y1[1]);
   vertex(y4[0],y4[1]);
   vertex(y5[0],y5[1]);
-    vertex(x3[0],x3[1]);
+  vertex(x3[0],x3[1]);
 
-endShape(CLOSE)
+  endShape(CLOSE)
 
-vasewidth=vasewidth*0.5
-boxsize=random(200,400);
-for (k=0;k<boxsize;k+=1){
-  strokeWeight(0.5)
-  //noFill()
-  stroke(hexToRgb(coloring3.color6))
-  rect(170+cos(30)*k,boxsize+sin(30)*k,vasewidth,vasewidth)
-  rect(170+cos(30)*k,boxsize-sin(30)*k,vasewidth,vasewidth)
-  rect(cos(30)*boxsize+170+cos(30)*(boxsize-k),400+350-sin(30)*(boxsize-k),vasewidth,vasewidth)
-  rect(cos(30)*boxsize+170+cos(30)*boxsize-cos(30)*k,400+350-sin(30)*boxsize-sin(30)*k,vasewidth,vasewidth)
-  strokeWeight(0.1)
-  stroke(hexToRgb(coloring3.color6))
-  //corner
-  // rect(170+cos(30)*500,500+sin(30)*500+k/30,50*(500-k)/500,vasewidth)
-  // rect(170+cos(30)*500,500-sin(30)*500-k/30,50*(500-k)/500,vasewidth)
+  vasewidth=random([5,10])
+  boxsize=random(100,400);
+  o1=random([-100,0,0,0,0,100]);
+  o2=random([-100,0,0,0,0,100]);
+  o3=random([-100,0,0,0,0,100]);
+  for (k=0;k<boxsize;k+=1){
+    strokeWeight(0.5)
+    //noFill()
+    stroke(c)
+    rect(
+      170+cos(30)*k+o1,
+      boxsize+sin(30)*k+o2,
+      vasewidth,
+      vasewidth
+    )
+    rect(170+cos(30)*k+o2,boxsize-sin(30)*k+o3,vasewidth,vasewidth)
+    rect(cos(30)*boxsize+170+cos(30)*(boxsize-k)+o1,400+350-sin(30)*(boxsize-k)+o2,vasewidth,vasewidth)
+    rect(cos(30)*boxsize+170+cos(30)*boxsize-cos(30)*k+o2,400+350-sin(30)*boxsize-sin(30)*k+o3,vasewidth,vasewidth)
+    strokeWeight(0.1)
+    stroke(c)
+    //corner
+    // rect(170+cos(30)*500,500+sin(30)*500+k/30,50*(500-k)/500,vasewidth)
+    // rect(170+cos(30)*500,500-sin(30)*500-k/30,50*(500-k)/500,vasewidth)
+  }
+
+
+
 }
 
+function connectlines(pos){
 
-
+  line(pos[0],pos[1],0,0)
+  line(pos[0],pos[1],0,1200)
+  line(pos[0],pos[1],1200,0)
+  line(pos[0],pos[1],1200,1200)
 }
 
 function hexToRgb(hex) {
-    hex = hex.replace('#', '');
+  hex = hex.replace('#', '');
 
-    var bigint = parseInt(hex, 16);
+  var bigint = parseInt(hex, 16);
 
-    var r = (bigint >> 16) & 255;
-    var g = (bigint >> 8) & 255;
-    var b = bigint & 255;
+  var r = (bigint >> 16) & 255;
+  var g = (bigint >> 8) & 255;
+  var b = bigint & 255;
 
-    return color(r, g, b);
+  return color(r, g, b);
 }
 
 function carve2(x,y,shapesize,wiggle){
@@ -863,7 +908,7 @@ if (random(0,1)<0.5){
   c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
   c.setAlpha(random(50,100));
   fill(c)
-    if (random(0,1)<0.5){
+  if (random(0,1)<0.5){
     stroke(random([coloring3.color2,coloring3.color2,coloring3.color3,coloring3.color4,coloring3.color3,coloring3.color6]))
   }
   rect(x+10,y-40,shapesize*(50-k)/209,shapesize*(50-k)/120)
