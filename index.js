@@ -1,8 +1,3 @@
-
-
-
-
-
 let fieldbend=Xrandom(0.2,1);
 
 
@@ -19,11 +14,11 @@ let leftceilingangle= Xrandom(50,150);
 let colorpicker= Xrandom(0,1);
 let rotateStyle=Xrandom(0,1);
 let leadCames=Xrandom(0.1,1.1);
-
-console.log(rotateStyle)
-console.log(getColorStyle(colorpicker))
-console.log(getRotateStyle(rotateStyle))
-console.log(getPerspectiveNearFar(centerpoint[0],centerpoint[1],rotateStyle))
+//
+// console.log(rotateStyle)
+// console.log(getColorStyle(colorpicker))
+// console.log(getRotateStyle(rotateStyle))
+// console.log(getPerspectiveNearFar(centerpoint[0],centerpoint[1],rotateStyle))
 
 function Xrandom(x,y){
   return (y-x)*fxrand()+x;
@@ -130,10 +125,7 @@ if (colorpicker < 0.15 ){
 
 
 
-const size = 1200;
-let rc;
-let turnoff=0;
-//single curve Day 8
+
 
 function setup() {
  randomSeed(int(fxrand()*100000000))
@@ -187,8 +179,8 @@ function draw() {
   let shapesize=random(110,600);
   let vasewidth=20
   turn=random(-0,0)
-  horizontal_shift=random(-20,20)
-  vertical_shift=random(20,20)
+  horizontal_shift=random(0,0)
+  vertical_shift=random(0,0)
 
 blendMode(DIFFERENCE)
 
@@ -196,110 +188,20 @@ blendMode(DIFFERENCE)
   angleMode(DEGREES)
   rectMode(CENTER)
     colorMode(RGB,255);
+
+    shadowstrength=random(60,110)
+    reflection=random(-3.8,3.8)
+drawCube(shadowstrength,reflection,1,1)
+
 shadowstrength=random(60,110)
-reflection=random(-18,18)
-
-    //right
-      push()
-      rotate(60+turn+reflection+random(-10,10))
-      translate(200+horizontal_shift,-800+vertical_shift)
-      carve3(shadowstrength,vasewidth,1)
-      pop()
-    //back
-      push()
-      rotate(-60+turn+reflection+random(-10,10))
-      translate(-900+horizontal_shift,100+vertical_shift)
-      carve3(shadowstrength,vasewidth,1)
-      pop()
-
-      //floor
-        push()
-        rotate(0+turn+reflection+random(-10,10))
-        translate(-100+horizontal_shift,340+vertical_shift)
-        carve3(shadowstrength,vasewidth,1)
-        pop()
-    //left
-      push()
-      rotate(60+turn+reflection+random(-10,10))
-      translate(100+horizontal_shift,-180+vertical_shift)
-      carve3(shadowstrength,vasewidth,1)
-      pop()
-
-
-    //front
-      push()
-      rotate(-60+turn+reflection+random(-10,10))
-      translate(-1200+horizontal_shift,600+vertical_shift)
-      carve3(shadowstrength,vasewidth,1)
-      pop()
-
-
-
-      //top
-      push()
-      rotate(0+turn+reflection+random(-10,10))
-      translate(-100+horizontal_shift,-100+vertical_shift)
-      carve3(shadowstrength,vasewidth,1)
-      pop()
-      //
-
-
-      shadowstrength=random(60,110)
-      reflection=random(-128,128)
-
-          //right
-            push()
-            rotate(60+turn+reflection+random(-10,10))
-            translate(200+horizontal_shift,-800+vertical_shift)
-            carve3(shadowstrength,vasewidth,1)
-            pop()
-          //back
-            push()
-            rotate(-60+turn+reflection+random(-10,10))
-            translate(-900+horizontal_shift,100+vertical_shift)
-            carve3(shadowstrength,vasewidth,1)
-            pop()
-
-            //floor
-              push()
-              rotate(0+turn+reflection+random(-10,10))
-              translate(-100+horizontal_shift,340+vertical_shift)
-              carve3(shadowstrength,vasewidth,1)
-              pop()
-          //left
-            push()
-            rotate(60+turn+reflection+random(-10,10))
-            translate(100+horizontal_shift,-180+vertical_shift)
-            carve3(shadowstrength,vasewidth,1)
-            pop()
-
-
-          //front
-            push()
-            rotate(-60+turn+reflection+random(-10,10))
-            translate(-1200+horizontal_shift,600+vertical_shift)
-            carve3(shadowstrength,vasewidth,1)
-            pop()
-
-
-
-            //top
-            push()
-            rotate(0+turn+reflection+random(-10,10))
-            translate(-100+horizontal_shift,-100+vertical_shift)
-            carve3(shadowstrength,vasewidth,1)
-            pop()
-            //
-
-      //
+reflection=random(-3.8,3.8)
+drawCube(shadowstrength,reflection,1,1)
 
 
 
 backgroundlucent=255
-
       background(random(0,255),random(0,255),random(0,255),backgroundlucent)
-
-  blendMode(ADD)
+  //blendMode(ADD)
 
   blendMode(DARKEST )
 
@@ -313,13 +215,11 @@ backgroundlucent=255
 
 //dot
       fill(random(0,255),random(0,255),random(0,255))
-      noStroke()
+      strokeWeight(0.1)
     circle(random(300,1000),200-random(-150,150),random(50,150))
-
-
+  strokeWeight(1)
 //sky
-    c=fill(random(0,255),random(0,255),random(0,255))
-    stroke(c)
+    fill(random(0,255),random(0,255),random(0,255))
     rect(600,0,1200,1000+random(200,400))
 
 
@@ -333,63 +233,19 @@ backgroundlucent=255
       rect(1200,300,random(300,600),1000+random(100,900))
 
 
-//blendMode(LIGHTEST)
-blendMode(DARKEST)
-
-  let	x = 600+random(-200,200)
-  let y = 600+random(-200,200)
-
-
-let uvfilter=random(150,250)
 blendMode(LIGHTEST)
-//right
-  push()
-  rotate(60+turn)
-  translate(200+horizontal_shift,-800+vertical_shift)
-  carve3(uvfilter,vasewidth,0)
-  pop()
-//back
-  push()
-  rotate(-60+turn)
-  translate(-900+horizontal_shift,100+vertical_shift)
-  carve3(uvfilter,vasewidth,0)
-  pop()
+//blendMode(DARKEST)
 
-  //floor
-    push()
-    rotate(0+turn)
-    translate(-100+horizontal_shift,340+vertical_shift)
-    carve3(uvfilter,vasewidth,0)
-    pop()
-//left
-  push()
-  rotate(60+turn)
-  translate(100+horizontal_shift,-180+vertical_shift)
-  carve3(uvfilter,vasewidth,0)
-  pop()
-
-
-//front
-  push()
-  rotate(-60+turn)
-  translate(-1200+horizontal_shift,600+vertical_shift)
-  carve3(uvfilter,vasewidth,0)
-  pop()
-
-
-
-  //top
-  push()
-  rotate(0+turn)
-  translate(-100+horizontal_shift,-100+vertical_shift)
-  carve3(uvfilter,vasewidth,0)
-  pop()
+  // let	x = 600+random(-200,200)
+  // let y = 600+random(-200,200)
   //
 
-  //
-  //
-//
 
+blendMode(LIGHTEST)
+uvfilter=random(150,250)
+shadowstrength=random(60,110)
+reflection=random(-0.01,0.01)
+drawCube(uvfilter,reflection,0,0)
 
 
   noLoop()
@@ -421,6 +277,84 @@ push()
 rotate(-10)
   ellipse(180+330,1200+350,280/1.7,130/1.8)
   pop()
+}
+
+function drawCube(shadow,reflection,flower,stretch){
+
+  console.log(reflection)
+vasewidth=20
+      //right
+        push()
+        rotate(60+turn+reflection*random(-10,10))
+        translate(200+horizontal_shift,-800+vertical_shift)
+        if(stretch==1){
+              scale(random([0.5,1,2]), random([0.5, 1 ,2]));
+        }else{
+
+        }
+        carve3(shadowstrength,vasewidth,flower)
+        pop()
+      //back
+        push()
+        rotate(-60+turn+reflection*random(-10,10))
+        translate(-900+horizontal_shift,100+vertical_shift)
+        if(stretch==1){
+              scale(random([0.5, 1, 2]), random([0.5, 1 ,2]));
+        }else{
+
+        }
+        carve3(shadowstrength,vasewidth,flower)
+        pop()
+
+        //floor
+          push()
+          rotate(0+turn+reflection*random(-10,10))
+          translate(-100+horizontal_shift,340+vertical_shift)
+          if(stretch==1){
+            scale(random([0.5, 1, 2]), random([0.5, 1 ,2]));
+          }else{
+
+          }
+          carve3(shadowstrength,vasewidth,flower)
+          pop()
+      //left
+        push()
+        rotate(60+turn+reflection*random(-10,10))
+        translate(100+horizontal_shift,-180+vertical_shift)
+        if(stretch==1){
+              scale(random([0.5, 1, 2]), random([0.5, 1 ,2]));
+        }else{
+
+        }
+        carve3(shadowstrength,vasewidth,flower)
+        pop()
+
+
+      //front
+        push()
+        rotate(-60+turn+reflection*random(-10,10))
+        translate(-1200+horizontal_shift,600+vertical_shift)
+        if(stretch==1){
+              scale(random([0.5, 1, 2]), random([0.5, 1 ,2]));
+        }else{
+
+        }
+        carve3(shadowstrength,vasewidth,flower)
+        pop()
+
+        //top
+        push()
+        rotate(0+turn+reflection*random(-10,10))
+        translate(-100+horizontal_shift,-100+vertical_shift)
+        if(stretch==1){
+        scale(random([0.5 ,1 ,2]), random([0.5, 1, 2]));
+        }else{
+
+        }
+        carve3(shadowstrength,vasewidth,flower)
+        pop()
+        //
+
 }
 
 function carve3(uvfilter,vasewidth,flower){
@@ -501,7 +435,7 @@ function carve3(uvfilter,vasewidth,flower){
 
   //
 
-if (flower=1){
+if (flower==1){
   position=carve2(600+cos(30)*150,600-sin(30)*150,16,0)
   //console.log(position)
     carve2(position[0],position[1],8,0)
@@ -579,7 +513,7 @@ fill(c)
 
 
 //
-console.log(uvfilter)
+//console.log(uvfilter)
 beginShape()
 c=hexToRgb(random([coloring3.color3,coloring3.color2,coloring3.color1,coloring3.color4,coloring3.color5]));
 c.setAlpha(uvfilter);
