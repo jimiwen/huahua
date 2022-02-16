@@ -266,7 +266,7 @@ console.log(c,c)
       fill(random(0,255),random(0,255),random(0,255))
     circle(random(300,1000),200-random(-150,150),random(50,150))
 blendMode(SCREEN)
-blendMode(DIFFERENCE)
+//blendMode(DIFFERENCE)
 
   let	x = 600+random(-200,200)
   let y = 600+random(-200,200)
