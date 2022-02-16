@@ -196,33 +196,33 @@ blendMode(DIFFERENCE)
   angleMode(DEGREES)
   rectMode(CENTER)
     colorMode(RGB,255);
-let shadowstrength=random(60,110)
+shadowstrength=random(60,110)
 reflection=random(-18,18)
 
     //right
       push()
       rotate(60+turn+reflection+random(-10,10))
       translate(200+horizontal_shift,-800+vertical_shift)
-      carve3(shadowstrength,vasewidth)
+      carve3(shadowstrength,vasewidth,1)
       pop()
     //back
       push()
       rotate(-60+turn+reflection+random(-10,10))
       translate(-900+horizontal_shift,100+vertical_shift)
-      carve3(shadowstrength,vasewidth)
+      carve3(shadowstrength,vasewidth,1)
       pop()
 
       //floor
         push()
         rotate(0+turn+reflection+random(-10,10))
         translate(-100+horizontal_shift,340+vertical_shift)
-        carve3(shadowstrength,vasewidth)
+        carve3(shadowstrength,vasewidth,1)
         pop()
     //left
       push()
       rotate(60+turn+reflection+random(-10,10))
       translate(100+horizontal_shift,-180+vertical_shift)
-      carve3(shadowstrength,vasewidth)
+      carve3(shadowstrength,vasewidth,1)
       pop()
 
 
@@ -230,7 +230,7 @@ reflection=random(-18,18)
       push()
       rotate(-60+turn+reflection+random(-10,10))
       translate(-1200+horizontal_shift,600+vertical_shift)
-      carve3(shadowstrength,vasewidth)
+      carve3(shadowstrength,vasewidth,1)
       pop()
 
 
@@ -239,9 +239,57 @@ reflection=random(-18,18)
       push()
       rotate(0+turn+reflection+random(-10,10))
       translate(-100+horizontal_shift,-100+vertical_shift)
-      carve3(shadowstrength,vasewidth)
+      carve3(shadowstrength,vasewidth,1)
       pop()
       //
+
+
+      shadowstrength=random(60,110)
+      reflection=random(-128,128)
+
+          //right
+            push()
+            rotate(60+turn+reflection+random(-10,10))
+            translate(200+horizontal_shift,-800+vertical_shift)
+            carve3(shadowstrength,vasewidth,1)
+            pop()
+          //back
+            push()
+            rotate(-60+turn+reflection+random(-10,10))
+            translate(-900+horizontal_shift,100+vertical_shift)
+            carve3(shadowstrength,vasewidth,1)
+            pop()
+
+            //floor
+              push()
+              rotate(0+turn+reflection+random(-10,10))
+              translate(-100+horizontal_shift,340+vertical_shift)
+              carve3(shadowstrength,vasewidth,1)
+              pop()
+          //left
+            push()
+            rotate(60+turn+reflection+random(-10,10))
+            translate(100+horizontal_shift,-180+vertical_shift)
+            carve3(shadowstrength,vasewidth,1)
+            pop()
+
+
+          //front
+            push()
+            rotate(-60+turn+reflection+random(-10,10))
+            translate(-1200+horizontal_shift,600+vertical_shift)
+            carve3(shadowstrength,vasewidth,1)
+            pop()
+
+
+
+            //top
+            push()
+            rotate(0+turn+reflection+random(-10,10))
+            translate(-100+horizontal_shift,-100+vertical_shift)
+            carve3(shadowstrength,vasewidth,1)
+            pop()
+            //
 
       //
       //
@@ -262,53 +310,57 @@ backgroundlucent=255
 
    blendMode(DIFFERENCE)
 
-
+//dot
       fill(random(0,255),random(0,255),random(0,255))
     circle(random(300,1000),200-random(-150,150),random(50,150))
 
-    fill(random(0,255),random(0,255),random(0,255))
 //sky
-    rect(600,00,1200,1000+random(200,400))
+    fill(random(0,255),random(0,255),random(0,255))
+    rect(600,0,1200,1000+random(200,400))
+
+
+    fill(random(0,255),random(0,255),random(0,255))
+    rect(600,1200,1400,200+random(0,300))
 
   blendMode(ADD)
     c=([random(0,255),random(0,255),random(0,255),255]);
       fill(c)
       drawstonesteps(c)
-      rect(1200,300,random(300,600),1000+random(-100,600))
+      rect(1200,300,random(300,600),1000+random(100,900))
 
 
-blendMode(DIFFERENCE)
+blendMode(LIGHTEST)
 
   let	x = 600+random(-200,200)
   let y = 600+random(-200,200)
 
 
 let uvfilter=random(250,250)
-blendMode(DIFFERENCE)
+blendMode(LIGHTEST)
 //right
   push()
   rotate(60+turn)
   translate(200+horizontal_shift,-800+vertical_shift)
-  carve3(uvfilter,vasewidth)
+  carve3(uvfilter,vasewidth,0)
   pop()
 //back
   push()
   rotate(-60+turn)
   translate(-900+horizontal_shift,100+vertical_shift)
-  carve3(uvfilter,vasewidth)
+  carve3(uvfilter,vasewidth,0)
   pop()
 
   //floor
     push()
     rotate(0+turn)
     translate(-100+horizontal_shift,340+vertical_shift)
-    carve3(uvfilter,vasewidth)
+    carve3(uvfilter,vasewidth,0)
     pop()
 //left
   push()
   rotate(60+turn)
   translate(100+horizontal_shift,-180+vertical_shift)
-  carve3(uvfilter,vasewidth)
+  carve3(uvfilter,vasewidth,0)
   pop()
 
 
@@ -316,7 +368,7 @@ blendMode(DIFFERENCE)
   push()
   rotate(-60+turn)
   translate(-1200+horizontal_shift,600+vertical_shift)
-  carve3(uvfilter,vasewidth)
+  carve3(uvfilter,vasewidth,0)
   pop()
 
 
@@ -325,7 +377,7 @@ blendMode(DIFFERENCE)
   push()
   rotate(0+turn)
   translate(-100+horizontal_shift,-100+vertical_shift)
-  carve3(uvfilter,vasewidth)
+  carve3(uvfilter,vasewidth,0)
   pop()
   //
 
@@ -366,7 +418,7 @@ rotate(-10)
   pop()
 }
 
-function carve3(uvfilter,vasewidth){
+function carve3(uvfilter,vasewidth,flower){
   angleMode(DEGREES)
   rectMode(CENTER)
 
@@ -444,16 +496,20 @@ function carve3(uvfilter,vasewidth){
 
   //
 
+if (flower=1){
+  carve2(600+cos(30)*150,600-sin(30)*150,20,0)
+   carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,20,0)
+    carve2(486+cos(30)*20,430-sin(30)*20,20,0)
+   carve2(570-cos(30)*20,500+sin(30)*20,20,0)
 
-    carve2(600+cos(30)*150,600-sin(30)*150,20,0)
-     carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,20,0)
-      carve2(486+cos(30)*20,430-sin(30)*20,20,0)
-     carve2(570-cos(30)*20,500+sin(30)*20,20,0)
+     carve2(600+cos(30)*150,600-sin(30)*150,20,0)
+      carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,20,0)
+       carve2(486+cos(30)*20,430-sin(30)*20,20,0)
+      carve2(570-cos(30)*20,500+sin(30)*20,20,0)
+}else{
 
-       carve2(600+cos(30)*150,600-sin(30)*150,20,0)
-        carve2(650+cos(30)*150+cos(30)*20,530-sin(30)*150+sin(30)*20,20,0)
-         carve2(486+cos(30)*20,430-sin(30)*20,20,0)
-        carve2(570-cos(30)*20,500+sin(30)*20,20,0)
+}
+
 
   angleMode(DEGREES)
   rectMode(CENTER)
